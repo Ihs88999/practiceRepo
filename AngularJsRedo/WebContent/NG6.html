@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+<script>
+var app= angular.module('myApp',[]);
+	app.controller('Ctrl', function($scope){
+		$scope.text1="hello world";
+		$scope.text2="Hello World";
+	});
+	
+	app.filter('capitalize', function(){
+	    return function(input) {
+	      return input.replace(/[^\s]*/g , function(txt){
+	    	  return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+	    	  });
+	    }
+	  });
+	
+	app.filter("reverse", function() {
+		  return function(input) {
+			  var str="";
+			  for(var i=0; i<=input.length;i++){
+				  str=input.charAt(i) + str; 
+			  }
+			    return str;
+		  }
+		});
+	 
+	
+</script>
+</head>
+<body ng-app="myApp" ng-controller="Ctrl">
+	<p>{{text1 | capitalize}}</p>
+	<p>{{text2 | reverse}}</p>
+	
+</body>
+</html>

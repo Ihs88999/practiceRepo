@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="angular.js"></script>
+		<script src="app.js"></script>
+	</head>
+
+
+	<body ng-app="fapp">
+		<div ng-controller="ctrl1">
+		<h2>Welcome to Silly's Breakfast Stop</h2>
+		<hr>
+		<ul style="list-style:none;">
+			<li ng-repeat="product in products|limitTo:3|orderBy:'price'">
+			{{product.name|baconise}} {{product.price|currency}}
+			</li>
+		</ul>
+		
+	</body>
+
+
+</html>

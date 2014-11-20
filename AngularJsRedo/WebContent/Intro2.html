@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+<script>
+var app = angular.module('myApp',[]);
+
+app.controller('Ctrl',function($scope){
+	$scope.x="square";
+	$scope.hello=function(){
+		alert('hello');
+	}
+	$scope.convert=function(){
+		if ($scope.x=="square"){
+		$scope.x="square circle";
+		}
+		else{
+			$scope.x="square";
+		}
+	}
+	
+});
+</script>
+<style>
+.square{
+width:200px;
+height:200px;
+border:1px solid black;
+}
+.circle{
+border-radius:200px;
+}
+</style>
+</head>
+<body ng-app="myApp">
+<div ng-controller="Ctrl">
+<button ng-click="hello()">Click</button>
+<button ng-click="convert()">Convert</button>
+<div class={{x}}></div>
+</div>
+
+</body>
+</html>

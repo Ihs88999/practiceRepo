@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+<script>
+	var app = angular.module('myApp', []);
+
+	app.controller('Ctrl', function($scope) {
+		$scope.x = "0px";
+		$scope.hello = function() {
+			alert('hello');
+		}
+		$scope.convert = function() {
+			if ($scope.x == "0px") {
+				$scope.x = "200px";
+			} else {
+				$scope.x = "0px";
+			}
+		}
+		$scope.colors = [ 'yellow', 'blue', 'green', 'black' ];
+
+		$scope.products = [{
+			"name" : "milk",
+			"price" : 3,
+			"qty" : 2,
+			"stock" : true
+		}, 
+		{
+			"name" : "soda",
+			"price" : 5,
+			"qty" : 3,
+			"stock" : true
+		}, 
+		{
+			"name" : "bread",
+			"price" : 6,
+			"qty" : 1,
+			"stock" : true
+		}, 
+		{
+			"name" : "orange juice",
+			"price" : 3,
+			"qty" : 2,
+			"stock" : false
+		}, 
+		{
+			"name" : "apple juice",
+			"price" : 5,
+			"qty" : 3,
+			"stock" : true
+		}
+
+		];
+
+		$scope.del = function(i) {
+			$scope.colors.splice(i,1);
+		}
+		$scope.Add = function(a) {
+			$scope.colors.push(a);
+			$scope.add = "";
+		}
+		
+
+	});
+</script>
+<style>
+#square {
+	width: 200px;
+	height: 200px;
+	border: 1px solid black;
+	border-radius: 0px;
+}
+</style>
+</head>
+<body ng-app="myApp">
+	<div ng-controller="Ctrl">
+		<button ng-click="hello()">Click</button>
+		<button ng-click="convert()">Convert</button>
+		<div style="border-radius:{{x}}" id="square"></div>
+
+		<input type="text" ng-model="add">
+		<button ng-click="Add(add)">Add to Array</button>
+		<ul>
+			<li ng-repeat="item in colors" style="color:{{item}}">{{item}}
+				<button ng-click="del($index)">Delete</button>
+			</li>
+		</ul>
+	
+	<table border=1>
+		
+		<tr>
+			<td><strong>name</strong></td>
+			<td ng-repeat="food in products">{{food.name}}</td>
+		</tr>
+		<tr>
+			<td><strong>price</strong></td>
+			<td ng-repeat="food in products">{{food.price}}</td>
+		</tr>
+		<tr>
+			<td><strong>Quantity</strong></td>
+			<td ng-repeat="food in products">{{food.qty}}</td>
+		</tr>
+		<tr>
+			<td><strong>In-Stock</strong></td>
+			<td ng-repeat="food in products">{{food.stock}}</td>
+		</tr>
+		
+	</table>
+	</div>
+
+</body>
+</html>

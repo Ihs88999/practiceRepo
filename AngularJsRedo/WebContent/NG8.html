@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+<script>
+var app =angular.module('myApp', []);
+var x=img.length;
+
+app.controller('CarouselCtrl',function($scope){
+  var img =$scope.slides = [
+    {
+      image: 'images/dog.jpg'
+    },
+    {
+      image: 'images/people1.jpg'
+    },
+    {
+      image: 'images/people2.jpg'
+    },
+    {
+      image: 'images/women-blog.jpg'
+    }
+  ];
+  
+});
+</script>
+
+</head>
+<body>
+<div ng-app="myApp">
+  <div ng-controller="CarouselCtrl" >
+    <div>
+        <slide>
+          <img ng-src={{slides[0].image}} width="400" height="200">
+          <div>
+            <h4>Slide{{$index}}</h4>
+          </div>
+        </slide>
+        <button ng-click="prev()">Prev</button>
+    <button ng-click="next()">Next</button>
+    </div>
+    
+    
+  </div>
+</div>  
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
+	</body>
+</html>

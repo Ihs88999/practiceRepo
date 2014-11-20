@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+<script>
+var app=angular.module('myApp',[]);
+app.controller('Ctrl', function($scope){
+	
+	$scope.toggle=function(){
+		$scope.bool=!$scope.bool;
+	}
+	$scope.disabled=function(){
+		$scope.disable=!$scope.disable;
+	}
+	
+});
+</script>
+<style>
+#toggle{
+position:absolute;
+top:200px;
+left:10px;
+}
+#btnDisable{
+position:absolute;
+top:240px;
+left:10px;
+}
+img{
+margin-left:200px;
+}
+</style>
+</head>
+<body ng-app="myApp" ng-controller="Ctrl">
+<button ng-click="disabled()" id="btnDisable">enable/disable</button>
+<button ng-click="toggle()" ng-disabled="disable" id="toggle">toggle</button>
+<img ng-src="images/people1.jpg" ng-show="bool">
+</body>
+</html>

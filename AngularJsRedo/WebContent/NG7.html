@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+<script>
+angular.module('myApp', [])
+  .controller('Controller', ['$scope', function($scope) {
+    $scope.naomi = { name: 'Naomi', address: '1600 Amphitheatre' };
+    $scope.igor = { name: 'Igor', address: '123 Somewhere' };
+    $scope.isam = { name: 'Isam', address: '543 Home' };
+    $scope.bob = { name: 'Bob', address: "786 Bob's Place" };
+
+  }])
+  .directive('myCustomer', function() {
+    return {
+      restrict: 'E',
+      scope: {
+        customer:'=info'
+      },
+      templateUrl: 'NG7customerInfo.html'
+    };
+  });
+  </script>
+</head>
+<body ng-app="myApp" >
+
+
+<div ng-controller="Controller">
+  <my-customer info="naomi"></my-customer>
+<hr>
+  <my-customer info="igor"></my-customer>
+<hr>
+  <my-customer info="isam"></my-customer>
+<hr>
+  <my-customer info="bob"></my-customer>
+</div>
+
+
+<script src="js/angular.js"></script>
+<script src="js/app6.js"></script>
+</body>
+</html>

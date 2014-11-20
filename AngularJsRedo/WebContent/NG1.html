@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+<script>
+var App= angular.module('MyApp', []);
+
+App.controller('Ctrl1', function($scope){
+	$scope.red=function(){
+		$scope.x="images/red.jpg";
+	}
+	$scope.yellow=function(){
+		$scope.x="images/yellow.jpg";
+	}
+	$scope.green=function(){
+		$scope.x="images/green.jpg";
+	}
+	
+});
+</script>
+<style>
+img{
+position:absolute;
+top:100px;
+left:50px;
+}
+</style>
+</head>
+<body ng-app="MyApp" ng-controller="Ctrl1">
+
+<button ng-click="red()">red</button>
+<button ng-click="yellow()">yellow</button>
+<button ng-click="green()">green</button>
+<img src="images/red.jpg">
+<img ng-src={{x}}>
+
+</body>
+</html>

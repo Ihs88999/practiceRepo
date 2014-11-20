@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+<script>
+var app=angular.module('myApp',[]);
+app.controller('Ctrl', function($scope){
+	
+	$scope.fade=function(){
+		$scope.show=!$scope.show;
+	}
+});
+</script>
+<style>
+img{
+-moz-transition:1s;
+transition:1s;
+opacity:1;
+}
+.fade{
+-moz-transition:1s;
+transition:1s;
+opacity:0;
+}
+</style>
+</head>
+<body ng-app="myApp" ng-controller="Ctrl">
+<button ng-click="fade()">Fade</button>
+<img src="images/people1.jpg" ng-class="{fade:show}">
+</body>
+</html>
